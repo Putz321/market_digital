@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nationalyti Official</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s ease;
+    }
+    body {
+      background-color: #111;
+      color: #fff;
+      padding-bottom: 100px;
+    }
+    #loading {
+      position: fixed;
+      background: #111;
+      color: #bb6bd9;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      animation: fadeOut 1s ease 2s forwards;
+      text-shadow: 0 0 8px #bb6bd9, 0 0 12px #bb6bd9;
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+    header {
+      background: #1a1a1a;
+      padding: 20px;
+      box-shadow: 0 1px 5px rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #bb6bd9;
+      text-shadow: 0 0 5px #bb6bd9;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+    }
+    .hero {
+      background: #0f0f0f;
+    }
+    .hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 4px solid #bb6bd9;
+    }
+    .container {
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .panel-form {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.05);
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #222;
+      color: #fff;
+    }
+    input:hover, select:hover {
+      border-color: #bb6bd9;
+    }
+    .output {
+      font-weight: bold;
+      margin-top: -10px;
+      margin-bottom: 20px;
+      color: #bb6bd9;
+      text-shadow: 0 0 5px #bb6bd9;
+    }
+    .status-box {
+      padding: 12px;
+      background: #222;
+      border-left: 4px solid #bb6bd9;
+      margin-top: 10px;
+      border-radius: 8px;
+      color: #bb6bd9;
+      text-shadow: 0 0 4px #bb6bd9;
+    }
+    .button {
+      background: #bb6bd9;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto 0;
+      box-shadow: 0 0 15px #bb6bd9, 0 0 25px #bb6bd9;
+    }
+    .button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 5px #bb6bd9;
+    }
+    .buttonSalin {
+      background-color: #bb6bd9;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #bb6bd9;
+    }
+    .notif-salin {
+      color: #bb6bd9;
+      margin-top: 10px;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .notif-salin.show {
+      opacity: 1;
+    }
+    .qris-container {
+      text-align: center;
+    }
+    .qris-image {
+      width: 200px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .qris-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+    .qris-zoomed {
+      max-width: 80%;
+      max-height: 80%;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #bb6bd9;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body onload="initPage()">
+
+  <div id="loading">𝐌𝖊𝖒𝖚𝖆𝖙 𝐇𝖆𝖑𝖆𝖒𝖆𝖓 𝐍𝖆𝖙𝖎𝖔𝖓𝖆𝖑𝖞𝖙𝖎 𝐎𝖋𝖋𝖎𝖈𝖎𝖆𝖑...</div>
+
+  <header>
+    <div class="logo">𝐈𝖓𝖋𝖔𝖗𝖒𝖆𝖙𝖎𝖔𝖓 𝐍𝖆𝖙𝖎𝖔𝖓𝖆𝖑𝖞𝖙𝖎 𝐎𝖋𝖋𝖎𝖈𝖎𝖆𝖑</div>
+    <nav>
+      <a href="#">𝐇𝐨𝐦𝐞</a>
+      <a href="#panel">𝐏𝐚𝐧𝐞𝐥</a>
+      <a href="#pembayaran">𝐏𝐞𝐦𝐛𝐚𝐲𝐚𝐫𝐚𝐧</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://files.catbox.moe/iba573.gif" alt="Banner Animasi">
+  </section>
+
+  <div class="container panel-form" id="panel">
+    <h2 style="text-align:center; margin-bottom: 25px;">𝐅𝐨𝐫𝐦𝐮𝐥𝐢𝐫 𝐏𝐞𝐦𝐞𝐬𝐚𝐧𝐚𝐧</h2>
+
+    <label for="namaPembeli">Nama Pembeli</label>
+    <input type="text" id="namaPembeli" placeholder="Contoh: Nationalyti Official">
+
+    <label for="nomorTujuan">Nomor Tujuan</label>
+    <input type="text" id="nomorTujuan" placeholder="628xxx">
+
+    <label for="panelSelect">Pilih Paket</label>
+    <select id="panelSelect" onchange="updateHarga()">
+      <option disabled selected>Pilih Paket</option>
+      <option value="2000">Panel 2GB - Rp 2.000</option>
+      <option value="3000">Panel 3GB - Rp 3.000</option>
+      <option value="4000">Panel 4GB - Rp 4.000</option>
+      <option value="5000">Panel 5GB - Rp 5.000</option>
+      <option value="6000">Unlimited - Rp 6.000</option>
+    </select>
+
+    <div class="output" id="harga">Total Harga: Rp 0</div>
+
+    <!-- Metode Pembayaran -->
+    <div style="background:#1a1a1a; padding:20px; border-radius:12px; margin-bottom:20px;">
+      <p><b>Transfer via DANA:</b></p>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <input type="text" value="08895485706" id="noDana" readonly style="flex:1; padding:10px; border-radius:8px; background:#222; color:#fff;">
+        <button onclick="salinNomor()" class="buttonSalin">📋 Salin</button>
+      </div>
+      <div id="notifSalin" class="notif-salin">Nomor berhasil disalin!</div>
+
+      <hr style="margin:25px 0; border-color:#444;">
+
+      <p><b>Atau Scan QRIS di bawah:</b></p>
+      <div class="qris-container">
+        <img src="https://files.catbox.moe/177y32.jpg" alt="QRIS" class="qris-image" onclick="zoomQRIS()">
+      </div>
+    </div>
+
+    <label for="bukti">Upload Bukti Transfer</label>
+    <input type="file" id="bukti" accept="image/*" capture="environment" onchange="cekBukti()">
+
+    <div class="status-box" id="statusPembayaran">Status Pembayaran: <b id="statusText">BELUM DIBAYAR</b></div>
+
+    <a class="button" id="whatsappLink" target="_blank">💬 Beli via WhatsApp</a>
+  </div>
+
+  <div id="qrisOverlay" class="qris-overlay" onclick="closeQRIS()">
+    <img src="https://files.catbox.moe/uozxe4.jpeg" alt="QRIS Zoom" class="qris-zoomed">
+  </div>
+
+  <footer>
+    © 2025 Nationalyti. For Real Account.
+  </footer>
+
+  <script>
+    function initPage() {
+      setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+      }, 2000);
+    }
+
+    function updateHarga() {
+      const panel = document.getElementById("panelSelect");
+      const harga = document.getElementById("harga");
+      const value = parseInt(panel.value);
+      harga.innerText = !isNaN(value) ? `Total Harga: Rp ${value.toLocaleString()}` : `Total Harga: Rp 0`;
+    }
+
+    function cekBukti() {
+      const bukti = document.getElementById("bukti").files[0];
+      const statusText = document.getElementById("statusText");
+      statusText.innerText = bukti ? "BERHASIL" : "BELUM DIBAYAR";
+    }
+
+    function salinNomor() {
+      const noDana = document.getElementById("noDana");
+      navigator.clipboard.writeText(noDana.value);
+      const notif = document.getElementById("notifSalin");
+      notif.classList.add("show");
+      setTimeout(() => notif.classList.remove("show"), 2000);
+    }
+
+    function zoomQRIS() {
+      document.getElementById("qrisOverlay").style.display = "flex";
+    }
+
+    function closeQRIS() {
+      document.getElementById("qrisOverlay").style.display = "none";
+    }
+
+    document.getElementById("whatsappLink").addEventListener("click", function (e) {
+      const nama = document.getElementById("namaPembeli").value.trim();
+      const tujuan = document.getElementById("nomorTujuan").value.trim();
+      const panel = document.getElementById("panelSelect");
+      const panelText = panel.options[panel.selectedIndex] ? panel.options[panel.selectedIndex].text : "";
+      const status = document.getElementById("statusText").innerText;
+
+      if (!nama || !tujuan || !panel.value) {
+        alert("Lengkapi semua data terlebih dahulu.");
+        e.preventDefault();
+        return;
+      }
+
+      const pesan = 
+`╔═════════════════════╗
+║     📦 Order Panel     ║
+╠═════════════════════╣
+║ 👤 Nama  : ${nama}
+║ 📱 Tujuan: ${tujuan}
+║ 📋 Paket : ${panelText}
+║ 💳 Status: ${status}
+╚═════════════════════╝`;
+
+      const url = `https://wa.me/628895485706?text=${encodeURIComponent(pesan)}`;
+      this.href = url;
+    });
+  </script>
+</body>
+</html>
