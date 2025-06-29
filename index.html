@@ -56,9 +56,6 @@
       color: #ccc;
       font-weight: 500;
     }
-    .hero {
-      background: #0f0f0f;
-    }
     .hero img {
       width: 100%;
       max-height: 400px;
@@ -123,10 +120,6 @@
       margin: 20px auto 0;
       box-shadow: 0 0 15px #bb6bd9, 0 0 25px #bb6bd9;
     }
-    .button:active {
-      transform: scale(0.95);
-      box-shadow: 0 0 5px #bb6bd9;
-    }
     .buttonSalin {
       background-color: #bb6bd9;
       border: none;
@@ -154,7 +147,6 @@
       width: 200px;
       border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
     .qris-overlay {
       position: fixed;
@@ -200,15 +192,15 @@
   <div class="container panel-form" id="panel">
     <h2 style="text-align:center; margin-bottom: 25px;">𝐅𝐨𝐫𝐦𝐮𝐥𝐢𝐫 𝐏𝐞𝐦𝐞𝐬𝐚𝐧𝐚𝐧</h2>
 
-    <label for="namaPembeli">Nama Pembeli</label>
+    <label for="namaPembeli">𝐍𝐚𝐦𝐚 𝐏𝐞𝐦𝐛𝐞𝐥𝐢</label>
     <input type="text" id="namaPembeli" placeholder="Contoh: Nationalyti Official">
 
-    <label for="nomorTujuan">Nomor Tujuan</label>
+    <label for="nomorTujuan">𝐍𝐨𝐦𝐞𝐫 𝐓𝐮𝐣𝐮𝐚𝐧</label>
     <input type="text" id="nomorTujuan" placeholder="628xxx">
 
-    <label for="panelSelect">Pilih Paket</label>
+    <label for="panelSelect">𝐏𝐢𝐥𝐢𝐡 𝐏𝐚𝐤𝐞𝐭</label>
     <select id="panelSelect" onchange="updateHarga()">
-      <option disabled selected>Pilih Paket</option>
+      <option disabled selected>𝐏𝐢𝐥𝐢𝐡 𝐏𝐚𝐤𝐞𝐭</option>
       <option value="2000">Panel 2GB - Rp 2.000</option>
       <option value="3000">Panel 3GB - Rp 3.000</option>
       <option value="4000">Panel 4GB - Rp 4.000</option>
@@ -216,13 +208,13 @@
       <option value="6000">Unlimited - Rp 6.000</option>
     </select>
 
-    <div class="output" id="harga">Total Harga: Rp 0</div>
+    <div class="output" id="harga">𝐓𝐨𝐭𝐚𝐥 𝐇𝐚𝐫𝐠𝐚: Rp 0</div>
 
     <!-- Metode Pembayaran -->
     <div style="background:#1a1a1a; padding:20px; border-radius:12px; margin-bottom:20px;">
-      <p><b>Transfer via DANA:</b></p>
+      <p><b>𝐓𝐫𝐚𝐧𝐬𝐟𝐞𝐫 𝐕𝐢𝐚 𝐃𝐚𝐧𝐚:</b></p>
       <div style="display:flex; align-items:center; gap:10px;">
-        <input type="text" value="08895485706" id="noDana" readonly style="flex:1; padding:10px; border-radius:8px; background:#222; color:#fff;">
+        <input type="text" value="081234567890" id="noDana" readonly style="flex:1; padding:10px; border-radius:8px; background:#222; color:#fff;">
         <button onclick="salinNomor()" class="buttonSalin">📋 Salin</button>
       </div>
       <div id="notifSalin" class="notif-salin">Nomor berhasil disalin!</div>
@@ -236,7 +228,7 @@
     </div>
 
     <label for="bukti">Upload Bukti Transfer</label>
-    <input type="file" id="bukti" accept="image/*" capture="environment" onchange="cekBukti()">
+    <input type="file" id="bukti" accept="image/*" onchange="cekBukti()">
 
     <div class="status-box" id="statusPembayaran">Status Pembayaran: <b id="statusText">BELUM DIBAYAR</b></div>
 
